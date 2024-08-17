@@ -28,6 +28,6 @@ public class ReviewDTO {
     @NotNull(message = MessageUtils.REVIEW_RATING_NULL_ERROR)
     @Min(value = 0, message = MessageUtils.REVIEW_RATING_MIN_ERROR)
     @Max(value = 5, message = MessageUtils.REVIEW_RATING_MAX_ERROR)
-    private int rating;
+    private Integer rating;
 
 }

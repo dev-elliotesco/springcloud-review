@@ -18,5 +18,5 @@ public class ReviewEntity {
     private String productId;
     private String userId;
     private String review;
-    private int rating;
+    private Integer rating;
 }
