@@ -2,10 +2,13 @@ package com.review.ms.service.imp;
 
 import com.review.ms.dto.ReviewDTO;
 import com.review.ms.exception.ReviewException;
+import com.review.ms.external.service.IProductServiceFeign;
+import com.review.ms.external.service.IUserServiceFeign;
 import com.review.ms.model.ReviewEntity;
 import com.review.ms.repository.IReviewRepository;
 import com.review.ms.service.IReviewService;
 import com.review.ms.utils.MessageUtils;
+import feign.FeignException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -19,11 +22,25 @@ public class ReviewServiceImpl implements IReviewService {
 
     private final IReviewRepository iReviewRepository;
 
+    private final IUserServiceFeign iUserClient;
+
+    private final IProductServiceFeign iProductClient;
+
     @Override
     public ResponseEntity<ReviewEntity> createReview(ReviewDTO reviewDTO) {
-        ReviewEntity reviewEntity = toEntity(reviewDTO);
-        iReviewRepository.save(reviewEntity);
-        return ResponseEntity.ok(reviewEntity);
+
+        try {
+            iUserClient.getUserById(reviewDTO.getUserId());
+            iProductClient.getProductById(reviewDTO.getProductId());
+
+            ReviewEntity reviewEntity = toEntity(reviewDTO);
+
+            iReviewRepository.save(reviewEntity);
+            return ResponseEntity.ok(reviewEntity);
+        } catch (FeignException.NotFound e) {
+            throw new ReviewException(MessageUtils.USER_OR_PRODUCT_NOT_FOUND
+                    + reviewDTO.getUserId() + " or " + reviewDTO.getProductId());
+        }
     }
 
     @Override
