@@ -32,15 +32,17 @@ cd springcloud-review-ms
 ```
 
 ## Configuración
-1. Antes de ejecutar el proyecto, asegúrate de tener una base de datos PostgreSQL en ejecución 
-y de configurar las siguientes variables de entorno con las credenciales correctas de la base de datos:
+1. Antes de ejecutar el proyecto, asegúrate de tener una base de datos MongoDB en ejecución
+   y de configurar las siguientes variables de entorno con las credenciales correctas de la base de datos:
 
-- `DB_URL`: La URL de tu base de datos. Por ejemplo, `jdbc:postgresql://localhost:5432/product_db`.
-- `DB_USERNAME`: El nombre de usuario de tu base de datos. Por ejemplo, `postgres`.
-- `DB_PASSWORD`: La contraseña de tu base de datos.
+- `DB_HOST`: El host de tu base de datos MongoDB. Por ejemplo, `localhost` o el nombre del servicio de MongoDB en Docker.
+- `DB_PORT`: El puerto de tu base de datos MongoDB. Por ejemplo, `27017`.
+- `DB_NAME`: El nombre de tu base de datos MongoDB.
+- `DB_USERNAME`: El nombre de usuario de tu base de datos MongoDB.
+- `DB_PASSWORD`: La contraseña de tu base de datos MongoDB.
 
-Por ejemplo, puedes definir las variables de entorno en tu sistema operativo o en tu IDE. Si estás 
-utilizando IntelliJ IDEA, puedes definir las variables de entorno en la configuración de tu 
+Por ejemplo, puedes definir las variables de entorno en tu sistema operativo o en tu IDE. Si estás
+utilizando IntelliJ IDEA, puedes definir las variables de entorno en la configuración de tu
 Run/Debug Configuration.
 
 2. Asegúrate de tener el servicio Eureka en ejecución.
