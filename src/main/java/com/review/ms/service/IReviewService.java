@@ -1,7 +1,6 @@
 package com.review.ms.service;
 
 import com.review.ms.dto.ReviewDTO;
-import com.review.ms.model.ReviewEntity;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
