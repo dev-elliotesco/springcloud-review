@@ -8,3 +8,8 @@ spring:
       uri: ${DB_URI}
 server:
   port: 8083
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  packagesToScan: com.review.ms.controller
