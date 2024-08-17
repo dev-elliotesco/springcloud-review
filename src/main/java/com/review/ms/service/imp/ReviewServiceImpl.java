@@ -18,24 +18,24 @@ public class ReviewServiceImpl implements IReviewService {
     private final IReviewRepository iReviewRepository;
 
     @Override
-    public ResponseEntity<String> createReview(ReviewDTO reviewDTO) {
+    public ResponseEntity<ReviewEntity> createReview(ReviewDTO reviewDTO) {
         ReviewEntity reviewEntity = toEntity(reviewDTO);
         iReviewRepository.save(reviewEntity);
-        return ResponseEntity.ok(reviewEntity.getId());
+        return ResponseEntity.ok(reviewEntity);
     }
 
     @Override
-    public ResponseEntity<List<String>> getAllReviews() {
+    public ResponseEntity<List<ReviewEntity>> getAllReviews() {
         return null;
     }
 
     @Override
-    public ResponseEntity<String> getReviewById(String id) {
+    public ResponseEntity<ReviewEntity> getReviewById(String id) {
         return null;
     }
 
     @Override
-    public ResponseEntity<String> updateReview(String id, ReviewDTO reviewDTO) {
+    public ResponseEntity<ReviewEntity> updateReview(String id, ReviewDTO reviewDTO) {
         return null;
     }
 

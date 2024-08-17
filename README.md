@@ -37,9 +37,7 @@ cd springcloud-review-ms
 
 - `DB_HOST`: El host de tu base de datos MongoDB. Por ejemplo, `localhost` o el nombre del servicio de MongoDB en Docker.
 - `DB_PORT`: El puerto de tu base de datos MongoDB. Por ejemplo, `27017`.
-- `DB_NAME`: El nombre de tu base de datos MongoDB.
-- `DB_USERNAME`: El nombre de usuario de tu base de datos MongoDB.
-- `DB_PASSWORD`: La contraseña de tu base de datos MongoDB.
+- `DB_URI`: La URI de tu base de datos MongoDB. Por ejemplo, `mongodb://localhost:27017/review_db`.
 
 Por ejemplo, puedes definir las variables de entorno en tu sistema operativo o en tu IDE. Si estás
 utilizando IntelliJ IDEA, puedes definir las variables de entorno en la configuración de tu

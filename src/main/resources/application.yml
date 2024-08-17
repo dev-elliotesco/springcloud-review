@@ -1,14 +1,10 @@
 spring:
   application:
     name: review-ms
-    data:
-      mongodb:
-        authentication-database: admin
-        host: ${DB_HOST}
-        port: ${DB_PORT}
-        database: ${DB_NAME}
-        username: ${DB_USERNAME}
-        password: ${DB_PASSWORD}
-
+  data:
+    mongodb:
+      host: ${DB_HOST}
+      port: ${DB_PORT}
+      uri: ${DB_URI}
 server:
   port: 8083
